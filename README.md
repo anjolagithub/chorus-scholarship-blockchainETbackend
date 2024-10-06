@@ -16,10 +16,13 @@ Directory format
 chorus-scholarship/
 ├── contracts/
 │   └── Scholarship.sol
+
 ├── scripts/
 │   └── deploy.js
+
 ├── test/
 │   └── Scholarship.test.js
+
 ├── src/                 // Backend source code
 │   ├── index.js         // Main entry point for your backend app
 │   ├── routes/          // API route handlers

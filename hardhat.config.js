@@ -6,12 +6,10 @@ require("dotenv").config();
 module.exports = {
   solidity: "0.8.24",
   networks: {
-    base: {
-        url: process.env.BASE_RPC_URL,
-        accounts: [process.env.PRIVATE_KEY]
-    }
+    sepolia: {
+      url: `https://sepolia.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`, // Replace with your Infura URL
+      accounts: [`0x${process.env.PRIVATE_KEY}`] // Your wallet's private key
+  }
 }
 };
-
-
 

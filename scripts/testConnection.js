@@ -1,17 +1,14 @@
-const { AlchemyProvider } = require('@ethersproject/providers');
+const Web3 = require('web3');
+const { HttpProvider } = require('web3-providers');
 
-async function main() {
-  const provider = new AlchemyProvider('sepolia', process.env.ALCHEMY_API_KEY);
+const url = 'https://rpc.ankr.com/base_sepolia/24b8b463fea3397fbe603854d03bae63202701d0b9ea13a8f73503b4c66f6934';  // url string
 
-  try {
-    const blockNumber = await provider.getBlockNumber();
-    console.log('Current block number:', blockNumber);
-  } catch (error) {
-    console.error('Error fetching block number:', error);
-  }
-}
+const web3 = new Web3(new HttpProvider(url));
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+web3.eth.getBlockNumber((error, blockNumber) => {
+    if(!error) {
+        console.log(blockNumber);
+    } else {
+        console.log(error);
+    }
 });

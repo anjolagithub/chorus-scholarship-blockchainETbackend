@@ -4,7 +4,11 @@ const { ethers } = hardhat;
 async function main() {
     const [deployer] = await ethers.getSigners();
     const balance = await ethers.provider.getBalance(deployer.address);
-    console.log(`Deployer balance: ${ethers.utils.formatEther(balance)} ETH`);
+    
+    // Use the new syntax for formatEther
+    const balanceInEther = ethers.formatEther(balance);
+    
+    console.log(`Deployer balance: ${balanceInEther} ETH`);
 }
 
 main().catch((error) => {

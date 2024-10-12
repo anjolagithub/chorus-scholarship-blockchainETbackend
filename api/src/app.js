@@ -6,6 +6,8 @@ import morgan from "morgan";
 import logger from "./Shared/utils/logger.js";
 
 import accountRoutes from "./Modules/Account/account.routes.js";
+import studentRoutes from "./Modules/Student/student.routes.js";
+import applicationRoutes from "./Modules/ScholarshipApplication/application.routes.js";
 
 const app = express();
 
@@ -32,5 +34,7 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.use("/v1/account", accountRoutes);
+app.use("/v1/students", studentRoutes);
+app.use("/v1/applications", applicationRoutes);
 
 export default app;

@@ -14,13 +14,18 @@ export default class StudentServices {
     setPayload,
     unSetPayload
   ) {
-    const updatedAccount = await StudentRepository.updateOne(
-      filter,
-      setPayload,
-      unSetPayload
-    );
-
-    return updatedAccount;
+    try {
+      const updatedAccount = await StudentRepository.updateOne(
+        filter,
+        setPayload,
+        unSetPayload
+      );
+  
+      return updatedAccount;
+      
+    } catch (error) {
+      throw error
+    }
   }
 
   static async checkAccountPresence(filter) {

@@ -11,6 +11,10 @@ export const config = {
     database: {
       mongoURI: process.env.MONGO_URI || "",
     },
+    bucket: {
+      projectId: process.env.PROJECT_ID,
+      keyFilename: process.env.KEYFILENAME
+    }
   },
 
   brevo: {

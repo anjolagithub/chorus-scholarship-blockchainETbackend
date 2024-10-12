@@ -18,10 +18,7 @@ const studentSchema = new Schema (
       type: String,
       ref: "Scholarship",
     },
-    skills: {
-      type: Object,
-      default: {}
-    },
+    skills: Array,
     location: String
   },
   {

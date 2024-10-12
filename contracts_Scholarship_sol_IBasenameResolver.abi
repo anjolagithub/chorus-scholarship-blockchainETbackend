@@ -1,1 +1,16 @@
-[{"inputs":[{"internalType":"string","name":"name","type":"string"}],"name":"resolve","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"}]
+[
+    {"inputs":
+    [{"internalType":"string",
+    "name":"name",
+    "type":"string"
+    }
+    ],
+    "name":"resolve","outputs"
+    :[{"internalType":"address",
+    "name":"",
+    "type":"address"}
+    ],
+    "stateMutability":
+    "view",
+    "type":"function"}
+    ]`

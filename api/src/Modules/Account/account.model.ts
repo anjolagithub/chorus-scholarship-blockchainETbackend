@@ -16,7 +16,7 @@ export interface IAccountModel extends Document {
   resetAt: Date;
   resetTokenGeneratedAt: Date;
   isResetTokenUsed: Boolean;
-  accountType: "Student" | "Vendor";
+  accountType: "Student" | "Donor";
   accountTypeId: Schema.Types.ObjectId | IAccountModel;
   provider: "Local" | "Google";
   role: string;
@@ -48,7 +48,7 @@ const accountSchema = new Schema<IAccountModel>(
     verificationTokenGeneratedAt: Date,
     accountType: {
       type: String,
-      enum: ["Student", "Vendor"],
+      enum: ["Student", "Donor"],
       index: true,
     },
     accountTypeId: {

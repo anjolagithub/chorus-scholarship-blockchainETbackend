@@ -1,6 +1,6 @@
 export enum AccountType {
   Student = "Student",
-  Vendor = "Vendor",
+  Donor = "Donor",
 }
 
 // Interface for minimal base account input
@@ -14,11 +14,11 @@ export interface CreateMinimalBaseAccountInput {
 // Interface for base account input extending minimal base account input
 export interface CreateBaseAccountInput extends CreateMinimalBaseAccountInput {
   password: string;
+  accountType?: AccountType;
 }
 
 // Interface for full account input extending base account input
 export interface CreateAccountInput extends CreateBaseAccountInput {
-  accountType?: AccountType;
   accountTypeId?: string;
 }
 
@@ -44,4 +44,34 @@ export interface IDecodedToken {
   accountTypeId?: string;
   iat: number;
   exp: number;
+}
+
+export interface ForgetAccountPasswordInput {
+  email: string;
+}
+
+export interface LoginAccountInput extends ForgetAccountPasswordInput {
+  password: string;
+}
+
+export interface ResetAccountPasswordInput {
+  password: string;
+  resetToken: string;
+
+}
+
+export class IAccount {
+  firstName: string;
+  lastName: string;
+  email: string;
+  passwordChangedAt: Date;
+  isVerified: boolean;
+  isVerifiedAt: Date;
+  resetAt: Date;
+  cartId: string;
+  wishListId: string;
+  accountType: string;
+  accountId: string;
+  customerId: string;
+  provider: string;
 }

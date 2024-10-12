@@ -15,12 +15,18 @@ export interface IStudentModel extends Document {
  */
 const studentSchema = new Schema<IStudentModel>(
   {
-    educationDetails: Schema.Types.ObjectId,
-    fundingNeeded: Number,
+    educationDetails: {
+      type: Schema.Types.ObjectId,
+      default: null,
+    },
+    fundingNeeded: {
+      type: Number,
+      default: 0,
+    },
     applicationStatus: String,
     scholarshipId: {
       type: String,
-      ref: "Scholarship"
+      ref: "Scholarship",
     },
   },
   {

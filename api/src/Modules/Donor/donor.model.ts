@@ -4,6 +4,7 @@ import mongoose, { Schema, Document } from "mongoose";
  * Interface representing the Donor model.
  */
 export interface IDonorModel extends Document {
+  account: string;
   totalContributions: number;
   donationHistory: object[];
 }
@@ -13,7 +14,11 @@ export interface IDonorModel extends Document {
  */
 const donorSchema = new Schema<IDonorModel>(
   {
-    totalContributions: Number,
+    account: Schema.Types.ObjectId,
+    totalContributions: {
+      type: Number,
+      default: 0
+    },
     donationHistory: Array,
   },
   {

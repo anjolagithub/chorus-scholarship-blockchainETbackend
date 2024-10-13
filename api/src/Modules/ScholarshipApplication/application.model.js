@@ -26,6 +26,12 @@ const applicationSchema = new Schema(
       ref: "Student"
     },
     amountRequested: Number,
+    documents: {
+      proofOfEnrollment: String,
+      academicTranscripts: String,
+      letterOfRecommendation: String,
+      personalStatement: String,
+    },
     applicationDate: Date,
     status: {
       type: String,

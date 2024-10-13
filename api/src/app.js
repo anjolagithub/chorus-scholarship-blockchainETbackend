@@ -8,6 +8,7 @@ import logger from "./Shared/utils/logger.js";
 import accountRoutes from "./Modules/Account/account.routes.js";
 import studentRoutes from "./Modules/Student/student.routes.js";
 import applicationRoutes from "./Modules/ScholarshipApplication/application.routes.js";
+import scholarshipRoutes from "./Modules/Scholarship/scholarship.routes.js";
 
 const app = express();
 
@@ -36,5 +37,6 @@ app.use(cookieParser());
 app.use("/v1/account", accountRoutes);
 app.use("/v1/students", studentRoutes);
 app.use("/v1/applications", applicationRoutes);
+app.use("/v1/scholarships", scholarshipRoutes);
 
 export default app;

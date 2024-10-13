@@ -1,8 +1,8 @@
 import { Storage } from "@google-cloud/storage";
 import { config } from "../../Config/app.config.js";
 
-const projectId = config.storage.bucket.projectId;
-const keyFilename = config.storage.bucket.keyFilename;
+const projectId = config.storage.fileStorage.googleCloud.projectId;
+const keyFilename = config.storage.fileStorage.googleCloud.keyFilename;
 
 const storage = new Storage({ projectId, keyFilename });
 
@@ -29,3 +29,12 @@ export const googleCloudUploader = async (bucketName, file, fileOutputName) => {
     console.error("Error(upload):", error);
   }
 };
+
+export const addImageToCloudinary = async (imagePath) => {
+  const { secure_url } =
+    await cloudinary.v2.uploader.upload(imagePath, {
+      folder: "chorus",
+    });
+
+  return secure_url;
+}

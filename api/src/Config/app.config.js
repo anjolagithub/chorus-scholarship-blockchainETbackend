@@ -11,9 +11,15 @@ export const config = {
     database: {
       mongoURI: process.env.MONGO_URI || "",
     },
-    bucket: {
-      projectId: process.env.PROJECT_ID,
-      keyFilename: process.env.KEYFILENAME
+    fileStorage: {
+      googleCloud : {
+        projectId: process.env.PROJECT_ID,
+        keyFilename: process.env.KEYFILENAME
+      },
+      cloudinary: {
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+      },
     }
   },
 

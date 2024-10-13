@@ -13,6 +13,7 @@ router.post(
 
 router.post(
   "/upload",
+  isAuthenticated,
   handleUpload,
   ApplicationController.handleFileUpload
 );

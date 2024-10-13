@@ -1,4 +1,4 @@
-const multer = require("multer");
+import multer from "multer"
 
 // Multer configuration for file upload
 const storage = multer.diskStorage({
@@ -15,7 +15,6 @@ const uploadMultiple = upload.fields([
   { name: "file", maxCount: 1 },
 ]);
 
-// Middleware to handle file upload
 export const handleUpload = (req, res, next) => {
   uploadMultiple(req, res, function (err) {
     if (err instanceof multer.MulterError) {

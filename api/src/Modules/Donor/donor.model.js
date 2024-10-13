@@ -5,7 +5,10 @@ import mongoose, { Schema } from "mongoose";
  */
 const donorSchema = new Schema(
   {
-    account: Schema.Types.ObjectId,
+    account: {
+      type: Schema.Types.ObjectId,
+      ref: "Account"
+    },
     totalContributions: {
       type: Number,
       default: 0

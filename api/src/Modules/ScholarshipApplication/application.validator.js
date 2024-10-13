@@ -10,6 +10,24 @@ export const createApplicationValidator = Joi.object({
   currentLevelofEducation: Joi.string().required(),
   schoolName: Joi.string().required(),
   major: Joi.string().required(),
+  documents: Joi.object({
+    proofOfEnrollment: Joi.string().required().messages({
+      "string.base": "Proof of enrollment must be a string",
+      "any.required": "Proof of enrollment is required",
+    }),
+    academicTranscripts: Joi.string().required().messages({
+      "string.base": "Academic transcripts must be a string",
+      "any.required": "Academic transcripts are required",
+    }),
+    letterOfRecommendation: Joi.string().required().messages({
+      "string.base": "Letter of recommendation must be a string",
+      "any.required": "Letter of recommendation is required",
+    }),
+    personalStatement: Joi.string().required().messages({
+      "string.base": "Personal statement must be a string",
+      "any.required": "Personal statement is required",
+    }),
+  }).required(),
   expectedGraduationDate: Joi.date().greater('now').required(),
   fundingNeeded: Joi.string()
     .valid('Full tuition', 'Partial tuition', 'Living expenses')

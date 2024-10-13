@@ -1,19 +1,16 @@
-import { ApplicationValidator } from "./application.validator.js";
-import ApplicationServices from "./application.services.js"
-import {googleCloudUploader} from "../../Shared/utils/uploadFileToCloud.js";
+import { ScholarshipValidator } from "./scholarship.validator.js";
+import ScholarshipServices from "./scholarship.services.js"
+import { googleCloudUploader } from "../../Shared/utils/uploadFileToCloud.js";
 
-export default class ApplicationController {
+export default class ScholarshipController {
 
-    static async createApplication(req, res) {
+    static async createScholarship(req, res) {
         try {
+            console.log("image", req.files["coverImage"])
+            
             const data = req.body;
-            const {accountType, accountTypeId} = req.user;
 
-            if (accountType !== "Student") {
-                throw new ForbiddenException("Cannot perform this operation!");
-            }
-
-            const { error } = ApplicationValidator.validateCreateApplicationInput(data);
+            const { error } = ScholarshipValidator.validateCreateScholarshipInput(data);
     
             if (error) {
                 res.status(400).json({
@@ -25,21 +22,22 @@ export default class ApplicationController {
                 return;
             }
 
-            const createdApplication = await ApplicationServices.createApplication({studentId: accountTypeId, ...data});
+            const scholarship = await ScholarshipServices.createScholarship(data);
 
-            res.status(200).json({ message: "Application submitted successfully", application: createdApplication });
+            res.status(200).json({ message: "Scholarship created successfully", scholarship });
+
           } catch (error) {
             res.status(500).json({ error: error.message });
         }
     }
 
-    static async getAllApplications(req, res) {
+    static async getAllOpenScholarships(req, res) {
         try {
             
             const { pageNumber, pageSize, sort } = req.query;
             const skip = (pageNumber - 1) * pageSize;
     
-            const { error } = ApplicationValidator.validateGetAllApplications({ pageNumber, pageSize, sort });
+            const { error } = ScholarshipValidator.validateGetAllScholarships({ pageNumber, pageSize, sort });
     
             if (error) {
                 res.status(400).json({
@@ -53,9 +51,9 @@ export default class ApplicationController {
     
             const options = {sort, skip, limit: pageSize || 10}
     
-            const applications = await ApplicationServices.getAllApplications(options);
+            const scholarships = await ScholarshipServices.getAllScholarships(options);
     
-            res.status(200).json({message: "Applications retrieved succesfully.", applications})
+            res.status(200).json({message: "Open Scholarships retrieved succesfully.", scholarships})
         } catch (error) {
             res.status(500).json({error})
     

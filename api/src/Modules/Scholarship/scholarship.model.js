@@ -6,6 +6,9 @@ const scholarshipSchema = new Schema(
       type: String,
       required: true,
     },
+    coverImage: {
+      type: String
+    },
     description: {
       type: String,
       required: true,

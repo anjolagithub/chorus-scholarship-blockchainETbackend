@@ -1,5 +1,6 @@
 import { Storage } from "@google-cloud/storage";
 import { config } from "../../Config/app.config.js";
+import cloudinary from "../../Config/cloudinaryClient.config.js";
 
 const projectId = config.storage.fileStorage.googleCloud.projectId;
 const keyFilename = config.storage.fileStorage.googleCloud.keyFilename;
@@ -23,7 +24,6 @@ export const googleCloudUploader = async (bucketName, file, fileOutputName) => {
       expires: Date.now() + 2 * 30 * 24 * 60 * 60 * 1000, // URL expires in 2 months
     });
 
-    console.log("url")
     return url;
   } catch (error) {
     console.error("Error(upload):", error);
@@ -31,10 +31,15 @@ export const googleCloudUploader = async (bucketName, file, fileOutputName) => {
 };
 
 export const addImageToCloudinary = async (imagePath) => {
-  const { secure_url } =
-    await cloudinary.v2.uploader.upload(imagePath, {
-      folder: "chorus",
-    });
-
-  return secure_url;
+  try {
+    
+    const { secure_url } =
+      await cloudinary.v2.uploader.upload(imagePath, {
+        folder: "chorus",
+      });
+  
+    return secure_url;
+  } catch (error) {
+    throw error;
+  }
 }

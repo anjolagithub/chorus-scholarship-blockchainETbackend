@@ -2,10 +2,9 @@ import mongoose, { Schema } from "mongoose";
 
 const donationSchema = new Schema(
   {
-    donationId: String,
     donorId: String,
     studentId: String,
-    amount: Number,
+    amount: String,
     Date: Date,
   },
   {

@@ -6,13 +6,15 @@ export default class ScholarshipServices {
     try {
       return await ScholarshipRepository.createOne(data);
     } catch (error) {
-      console.log(error);
+      throw error
     }
   }
 
   static async getAllScholarships(options) {
     try {
-      return await ScholarshipRepository.findMany({status: "Open"}, options);
+      const scholarships = await ScholarshipRepository.findMany({status: "Open"}, options);
+      console.log(JSON.stringify(scholarships, null, 4))
+      return scholarships
     } catch (error) {
       console.log(error);
     }

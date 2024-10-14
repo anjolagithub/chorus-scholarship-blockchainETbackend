@@ -1,12 +1,11 @@
 import { ScholarshipValidator } from "./scholarship.validator.js";
 import ScholarshipServices from "./scholarship.services.js"
-import { googleCloudUploader } from "../../Shared/utils/uploadFileToCloud.js";
+import { addImageToCloudinary } from "../../Shared/utils/uploadFileToCloud.js";
 
 export default class ScholarshipController {
 
     static async createScholarship(req, res) {
         try {
-            console.log("image", req.files["coverImage"])
             
             const data = req.body;
 
@@ -33,11 +32,10 @@ export default class ScholarshipController {
 
     static async getAllOpenScholarships(req, res) {
         try {
-            
             const { pageNumber, pageSize, sort } = req.query;
             const skip = (pageNumber - 1) * pageSize;
-    
-            const { error } = ScholarshipValidator.validateGetAllScholarships({ pageNumber, pageSize, sort });
+            
+            const { error } = ScholarshipValidator.validateGetAllScholarships(req.query);
     
             if (error) {
                 res.status(400).json({
@@ -60,17 +58,15 @@ export default class ScholarshipController {
         }
     }
 
-    static async handleFileUpload(req, res) {
+    static async handleImageUpload(req, res) {
         try {
-            const [{ originalname: fileName, path: filePath }] = req.files["file"];
+            const [{path: filePath }] = req.files["file"];
             
-            const fileUrl = await googleCloudUploader(
-                "grdr",
-                filePath,
-                fileName
-            );
+            console.log("filePath", filePath)
             
-            res.status(200).json({url: fileUrl})
+            const url = await addImageToCloudinary(filePath)
+            
+            res.status(200).json({url})
             
         } catch (error) {
             res.status(500).json({error})

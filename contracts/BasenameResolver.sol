@@ -1,25 +1,22 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+pragma solidity ^0.8.0;
 
-interface IBasenameResolver {
-    function resolve(string calldata name) external view returns (address);
-    function register(string calldata name) external;
-}
-
-contract BasenameResolver is IBasenameResolver {
+contract BasenameResolver {
+    // Declare the mapping to hold the names and their owners
     mapping(string => address) private _names;
 
-    event NameRegistered(string indexed name, address indexed owner);
+    event NameRegistered(string name, address owner);
 
-    // Register a Basename to an address
-    function register(string calldata name) external {
+    function register(string memory name, address owner) public {
+        require(bytes(name).length > 0, "Basename cannot be empty");
+        require(owner != address(0), "Invalid address");
         require(_names[name] == address(0), "Name already registered");
-        _names[name] = msg.sender; // The caller is the owner of the Basename
-        emit NameRegistered(name, msg.sender);
+
+        _names[name] = owner;
+        emit NameRegistered(name, owner);
     }
 
-    // Resolve a Basename to an address
-    function resolve(string calldata name) external view override returns (address) {
+    function resolve(string memory name) public view returns (address) {
         return _names[name];
     }
 }

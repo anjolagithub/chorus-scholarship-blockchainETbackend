@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chorus for Change - Scholarship</title>
+
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        /* Header styles */
+        .header {
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            margin-left: 90px;
+            
+            
+        }
+
+        .mockup img{
+            width: 60%;
+        }
+        
+
+        .hero-details{
+            margin-top: 35px;
+        }
+
+        .hero-details button{
+            padding-top: 15px;
+        }
+        .header h1 {
+            font-size: 36px;
+            color: #5e5e5e;
+        }
+
+        .header h2 {
+            font-size: 32px;
+            color: #222;
+        }
+
+        .header h2 span {
+            background-color: yellow;
+            padding: 0 10px;
+        }
+
+        .header p {
+            margin: 20px 0;
+            font-size: 16px;
+        }
+
+        .donate-btn {
+            background-color: #00a3ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .donate-btn:hover {
+            background-color: #008ed4;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Scholarship Section */
+        .scholarship-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .scholarship-section h3 {
+            font-size: 24px;
+            color: #222;
+        }
+
+        .scholarship-section p {
+            max-width: 600px;
+            margin: 20px auto;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .be-donor-btn {
+            background-color: #ffcc00;
+            color: #222;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .be-donor-btn:hover {
+            background-color: #e6b800;
+        }
+
+        .team-image{
+            align-items: center;
+            margin-left: 100px;
+        }
+
+        /* Media Section */
+        .media-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .media-logos img {
+            max-width: 100px;
+            margin: 10px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .stats div {
+            text-align: center;
+        }
+
+        .stats h5 {
+            font-size: 24px;
+            color: #222;
+        }
+
+        /* CTA Section */
+
+        .cta-section {
+            background-image: url('images/image\ 7.png');
+            background-size: cover;  
+            background-position: center;  
+            background-repeat: no-repeat; 
+            padding: 5px;  
+            color: #fff;  
+        }
+
+
+        .cta-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f0f8ff;
+        }
+
+        .cta-section h4 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .apply-btn {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .apply-btn:hover {
+            background-color: #004c99;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .cta-buttons button {
+            margin: 0 10px;
+            background-color: #ffcc00;
+            color: #222;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .cta-buttons button:hover {
+            background-color: #e6b800;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: rgb(248, 206, 48, 1);
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+
+        .footer-about h4{
+            text-align: left;
+            margin-left: 100px !important;
+            padding-left: 10px;
+
+        }
+        .footer-about span{
+            
+        }
+        .footer-about p {
+            max-width: 400px;
+            margin-left: 90px;
+        }
+
+        .footer-links div {
+            text-align: left;
+        }
+
+        .footer-links h5 {
+            margin-bottom: 10px;
+        }
+
+        .footer-social {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+        }
+
+        .social-icons img {
+            max-width: 30px;
+        }
+
+        .footer-social p {
+            margin-top: 20px;
+        }
+
+        .footer-links{
+            display: flex;
+            /* justify-content: space-between; */
+            padding: 15px;
+            margin-left: 15px;
+            gap: 50px;
+            text-align: center;
+            justify-content: space-around;
+            /* align-items: center; */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="hero-details">
+            <div class="logo">
+                <h1>CHORUS FOR CHANGE</h1>
+                <h2>CHORUS FOR <span>SCHOLARSHIP</span></h2>
+            </div>
+            <p>A decentralized platform designed to offer educational <br> scholarships in Africa funded via DeFi protocols</p>
+            <button class="donate-btn">DONATE</button>    
+        </div>
+        <div class="mockup">
+            <img src="images/Frame 657.png" alt="Scholarship Mobile App" class="hero-img">
+        </div>
+    </header>
+
+    <!-- Scholarship Section -->
+    <section class="scholarship-section">
+        <h3><span>CHORUS</span> SCHOLARSHIP</h3>
+        <p>
+            Over the last decade, access to quality education remains a significant challenge in many African regions,
+            particularly for students from low-income backgrounds. By implementing on-chain scholarships, we can facilitate
+            direct funding from donors to students, ensuring financial constraints do not hinder educational opportunities.
+        </p>
+        <button class="be-donor-btn">BE A DONOR</button>
+    </section>
+    <div class="team-image">
+        <img src="images/Frame 15.png" alt="team-image">
+    </div>
+    <!-- Media Section -->
+    <section class="media-section">
+        <h4>AS SEEN IN...</h4>
+        <div class="media-logos">
+            <img src="" alt="">
+        </div>
+        <div class="stats">
+            <div>
+                <h5>6054</h5>
+                <p>Students/year</p>
+            </div>
+            <div>
+                <h5>124</h5>
+                <p>Staff Members</p>
+            </div>
+            <div>
+                <h5>1245</h5>
+                <p>Scholarship Awardees</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <h4>Implementing on-chain scholarship</h4>
+        <p>
+            We facilitate direct funding from donors to students, ensuring that financial constraints do not hinder educational opportunities.
+        </p>
+        <button class="apply-btn">APPLY</button>
+        <div class="cta-buttons">
+            <button class="cta-donate-btn">Donate Now</button>
+            <button class="cta-apply-btn">Apply Now</button>
+            <button class="cta-donate-btn">Donate Now</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h4>CHORUS  <br> <span>NETWORK</span></h4>
+                 
+                <p>We are building a <span>decentralized platform</span> designed to offer educational scholarships funded via DeFi protocols.</p>
+                <img src="images/Frame 21.png" alt="Scholarship Illustration">
+            </div>
+
+            <div class="social-icons">
+                <!-- Font awesome links here -->
+            </div>
+
+            <div class="footer-links">
+                <div>
+                    <h5>ABOUT</h5>
+                    <p>Our Team</p>
+                    <p>Our Story</p>
+                    <p>Contact Us</p>
+                </div>
+                <div>
+                    <h5>OUR WORK</h5>
+                    <p>Chorus Education</p>
+                    <p>Chorus Health</p>
+                    <p>Our Values</p>
+                </div>
+                <div>
+                    <h5>WAYS TO HELP</h5>
+                    <p>Donate</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-social">
+            <p>&copy; 2024 CHORUS NETWORK. ALL RIGHTS RESERVED</p>
+        </div>
+    </footer>
+</body>
+<script>
+    document.querySelector('.apply-btn').addEventListener('click', () => {
+    window.scrollTo({
+        top: document.querySelector('.cta-section').offsetTop,
+        behavior: 'smooth'
+    });
+});
+</script>
+</html>

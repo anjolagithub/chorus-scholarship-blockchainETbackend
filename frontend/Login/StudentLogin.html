@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="top-bar"></div> <!-- Red bar at the top -->
+    <div class="container">
+        <div class="login-header">
+            <img src="../images/Group 47 (1).png" alt="Chorus Logo" class="logo">
+            <div class="login-toggle">
+                <button id="donorLoginBtn" class="toggle-btn active">Student Login</button>
+                <button id="studentLoginBtn" class="toggle-btn" ><a href="./DonorLogin.html">Donor Login</a></button>
+            </div>
+        </div>
+        <div id="loginForm" class="login-form">
+            <h2>Login to student Portal</h2>
+            <form>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email address">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forgot your password?</a>
+                </div>
+                
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <div class="signup">
+                <p>Don't have an account? <a href="../Signup">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 CHORUS NETWORK. ALL RIGHTS RESERVED</p>
+    </footer>
+
+    <script src="App.js"></script>
+</body>
+</html>
